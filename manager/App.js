@@ -1,12 +1,23 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducers from './src/reducers';
+import firebase from 'firebase';
+import config from './config';
+import LoginForm from './src/containers/LoginForm';
 
 export default class App extends React.Component {
+  componentWillMount(){
+    firebase.initializeApp(config);
+  }
   render() {
+    let { container } = styles;
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
+      <Provider store={createStore(reducers)}>
+        <View style={container}>
+        </View>
+      </Provider>
     );
   }
 }

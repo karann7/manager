@@ -10,7 +10,6 @@ function FormInput(props) {
     keyboardType,
     returnKeyLabel,
     returnKeyType,
-    text,
     placeholder,
     onChangeText,
     label,
@@ -20,17 +19,16 @@ function FormInput(props) {
 
   return (
     <View style={ containerStyle }>
-      <Text style={ labelStyle }>{ label }</Text>
+      <Text style={ labelStyle }>{ label || 'label' }</Text>
       <TextInput
         style={ inputStyle }
-        value={ text }
-        placeholder={ placeholder }
+        placeholder={ placeholder || 'user@user.com'}
         onChangeText={ onChangeText }
-        autoCorrect={ autoCorrect }
-        autoFocus={ autoFocus }
-        keyboardType={ keyboardType }
-        returnKeyLabel={ returnKeyLabel }
-        secureTextEntry={ secureTextEntry }
+        autoCorrect={ autoCorrect || true}
+        autoFocus={ autoFocus || false}
+        keyboardType={ keyboardType || 'default'}
+        returnKeyLabel={ returnKeyLabel || 'next'}
+        secureTextEntry={ secureTextEntry || false}
       />
     </View>
   );

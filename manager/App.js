@@ -6,6 +6,7 @@ import reducers from './src/reducers';
 import firebase from 'firebase';
 import config from './config';
 import LoginForm from './src/containers/LoginForm';
+import { Header } from './src/components/common';
 
 export default class App extends React.Component {
   componentWillMount(){
@@ -16,6 +17,9 @@ export default class App extends React.Component {
     return (
       <Provider store={createStore(reducers)}>
         <View style={container}>
+          <Header>
+            Manager
+          </Header>
           <LoginForm />
         </View>
       </Provider>

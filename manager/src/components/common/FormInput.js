@@ -24,7 +24,7 @@ function FormInput(props) {
         style={ inputStyle }
         placeholder={ placeholder || 'user@user.com'}
         onChangeText={ onChangeText }
-        autoCorrect={ autoCorrect || true}
+        autoCorrect={ autoCorrect || false}
         autoFocus={ autoFocus || false}
         keyboardType={ keyboardType || 'default'}
         returnKeyLabel={ returnKeyLabel || 'next'}

@@ -26,6 +26,13 @@ class LoginForm extends Component {
 			return <Spinner />;
 		}
 	}
+	onError(){
+		return (
+			<Text style={styles.errorTextStyle}>
+				{this.props.error}
+			</Text>
+		);
+	}
 	render() {
 		return (
 			<Card>
@@ -48,9 +55,7 @@ class LoginForm extends Component {
 					value={this.props.password}
 					/>
 				</CardSection>
-				<Text style={styles.errorTextStyle}>
-					{this.props.error}
-				</Text>
+				{this.onError()}
 				<CardSection>
 					{this.renderButton()}
 				</CardSection>

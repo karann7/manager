@@ -1,34 +1,20 @@
-// Karan Singh
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, TextInput } from 'react-native';
+import React from 'react';
+import { TextInput, View, Text } from 'react-native';
 
-function FormInput(props) {
-
-  const { 
-    autoCorrect,
-    autoFocus,
-    keyboardType,
-    returnKeyLabel,
-    returnKeyType,
-    placeholder,
-    onChangeText,
-    label,
-    secureTextEntry
-  } = props;
-  let { inputStyle, labelStyle, containerStyle } = styles;
+const FormInput = ({ label, value, onChangeText, placeholder, secureTextEntry, keyboardType }) => {
+  const { inputStyle, labelStyle, containerStyle } = styles;
 
   return (
-    <View style={ containerStyle }>
-      <Text style={ labelStyle }>{ label || 'label' }</Text>
+    <View style={containerStyle}>
+      <Text style={labelStyle}>{label}</Text>
       <TextInput
-        style={ inputStyle }
-        placeholder={ placeholder || 'user@user.com'}
-        onChangeText={ onChangeText }
-        autoCorrect={ autoCorrect || false}
-        autoFocus={ autoFocus || false}
+        secureTextEntry={secureTextEntry}
+        placeholder={placeholder}
+        autoCorrect={false}
+        style={inputStyle}
+        value={value}
+        onChangeText={onChangeText}
         keyboardType={ keyboardType || 'default'}
-        returnKeyLabel={ returnKeyLabel || 'next'}
-        secureTextEntry={ secureTextEntry || false}
       />
     </View>
   );
@@ -54,6 +40,6 @@ const styles = {
     flexDirection: 'row',
     alignItems: 'center'
   }
-}
+};
 
-export { FormInput } ;
+export { FormInput };

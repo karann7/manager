@@ -8,6 +8,7 @@ import config from './config';
 import LoginForm from './src/containers/LoginForm';
 import { Header } from './src/components/common';
 import ReduxThunk from 'redux-thunk';
+import RouterComponent from './src/Router';
 
 export default class App extends React.Component {
   componentWillMount(){
@@ -22,7 +23,7 @@ export default class App extends React.Component {
           <Header>
             Manager
           </Header>
-          <LoginForm />
+          <RouterComponent />
         </View>
       </Provider>
     );

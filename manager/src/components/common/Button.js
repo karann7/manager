@@ -32,7 +32,7 @@ const styles = {
   },
   textStyle: {
     alignSelf: 'center',
-    color: '#007aff',
+    color: 'lightseagreen',
     fontSize: 16,
     fontWeight: '600',
     paddingTop: 10,

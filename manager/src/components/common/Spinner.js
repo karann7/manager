@@ -6,7 +6,7 @@ function Spinner({ size }) {
   let { container } = styles;
   return (
     <View style={container}>
-      <ActivityIndicator size={ size || 'large' } />
+      <ActivityIndicator color={'lightseagreen'} size={ size || 'large' } />
     </View>
   );
 }

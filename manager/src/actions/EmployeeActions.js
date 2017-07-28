@@ -1,8 +1,8 @@
-import { EMPLOYEE_CREATE } from './types';
+import { EMPLOYEE_UPDATE } from './types';
 
 export const employeeUpdate = ({ prop, value }) => {
   return {
-    type: EMPLOYEE_CREATE,
+    type: EMPLOYEE_UPDATE,
     payload: { prop, value}
   };
 };

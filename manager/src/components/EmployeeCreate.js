@@ -1,6 +1,7 @@
 // Karan Singh
 import React, { Component } from 'react';
 import { Card, CardSection, FormInput, Button } from './common';
+import { connect } from 'react-redux';
 
 class EmployeeCreate extends Component {
   render() {

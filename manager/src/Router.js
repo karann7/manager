@@ -8,7 +8,7 @@ const RouterComponent = () => {
   return (
     <Router>
       <Scene key="root">
-      <Scene initial key="login" component={LoginForm} title="Login" />
+      <Scene key="login" component={LoginForm} title="Login" />
       <Scene
         rightTitle="Add"
         onRight={() => Actions.employeeCreate()}
@@ -17,7 +17,7 @@ const RouterComponent = () => {
         title="Employees" 
         type={ActionConst.REPLACE}
       />
-      <Scene key="employeeCreate" component={EmployeeCreate} title="Create Employee" />
+      <Scene initial key="employeeCreate" component={EmployeeCreate} title="Create Employee" />
       </Scene>
     </Router>
   );

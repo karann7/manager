@@ -1,15 +1,22 @@
 // Karan Singh
 import React, { Component } from 'react';
-import { Card, Button, CardSection } from './common';
 import { StyleSheet } from 'react-native';
+import { Card, CardSection, Button } from './common';
 import { connect } from 'react-redux';
-import { employeeCreate} from '../actions';
+import { employeeUpdate } from '../actions';
 import EmployeeForm from './EmployeeForm.js';
+import _ from 'lodash';
 
-class EmployeeCreate extends Component {
+class EmployeeEdit extends Component {
   onButtonPress (e) {
     const { name, phone, email, shift } = this.props;
-    this.props.employeeCreate({ name, phone, email, shift });
+    console.log(name, phone, email, shift);
+    // this.props.employeeUpdate({ name, phone, email, shift });
+  }
+  componentWillMount() {
+    _.each(this.props.employee, (value, prop) => {
+      this.props.employeeUpdate({ prop, value });
+    });
   }
   render() {
     let { pickerLabelText } = styles;
@@ -18,7 +25,7 @@ class EmployeeCreate extends Component {
         <EmployeeForm {...this.props}/>
         <CardSection>
           <Button onPress={this.onButtonPress.bind(this)}>
-            Create
+            Save Changes
           </Button>
         </CardSection>
       </Card>
@@ -38,4 +45,4 @@ const mapStateToProps = state => {
   return { name, phone, email, shift };
 };
 
-export default connect(mapStateToProps, { employeeCreate })(EmployeeCreate) ;
+export default connect(mapStateToProps, { employeeUpdate })(EmployeeEdit) ;

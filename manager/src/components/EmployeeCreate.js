@@ -11,6 +11,8 @@ class EmployeeCreate extends Component {
     this.props.employeeCreate({ name, phone, email, shift });
   }
   render() {
+    // const { name, phone, email, shift } = this.props.employee;
+    
     let { pickerLabelText } = styles;
     return (
       <Card>
@@ -76,7 +78,6 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-  console.log(state);
   const { name, phone, email, shift } = state.employeeForm;
   return { name, phone, email, shift };
 };

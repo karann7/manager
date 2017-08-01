@@ -1,4 +1,4 @@
-import { EMPLOYEE_UPDATE, EMPLOYEE_CREATE } from '../actions/types';
+import { EMPLOYEE_UPDATE, EMPLOYEE_CREATE, EMPLOYEES_FETCH_SUCCESS } from '../actions/types';
 
 const INITIAL_STATE = {name: '', phone: '', email: '', shift: 'Monday'};
 

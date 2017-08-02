@@ -53,3 +53,15 @@ export const clearForm = () => {
     type: CLEAR_FORM
   };
 };
+
+export const employeeDelete = ({ uid }) => {
+  const { currentUser } = firebase.auth();
+  return (dispatch) => {
+    firebase.database().ref(`/users/${currentUser.uid}/employees/${uid}`)
+      .remove()
+      .then(() => {
+        dispatch({ type: CLEAR_FORM });
+        Actions.employeeList();
+      });
+  };
+};

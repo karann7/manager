@@ -60,7 +60,7 @@ class EmployeeEdit extends Component {
           visible={this.state.showModal}
           noBtn={this.onDecline.bind(this)}
           yesBtn={this.onAccept.bind(this)} >
-          Are you sure you want to fire this employee?
+          Are you sure you want to fire {this.props.name}?
         </Confirm>
       </Card>
       </ScrollView>

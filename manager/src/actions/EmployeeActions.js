@@ -1,7 +1,8 @@
 import {
   EMPLOYEE_UPDATE,
   EMPLOYEE_CREATE,
-  EMPLOYEES_FETCH_SUCCESS
+  EMPLOYEES_FETCH_SUCCESS,
+  CLEAR_FORM
 } from './types';
 import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
@@ -41,8 +42,14 @@ export const employeeSave = ({ name, email, phone, shift, uid}) => {
     firebase.database().ref(`/users/${currentUser.uid}/employees/${uid}`)
       .set({ name, phone, email, shift })
       .then(() => {
-        dispatch({ type: EMPLOYEE_CREATE });
+        dispatch({ type: CLEAR_FORM });
         Actions.employeeList();
       });
+  };
+};
+
+export const clearForm = () => {
+  return {
+    type: CLEAR_FORM
   };
 };

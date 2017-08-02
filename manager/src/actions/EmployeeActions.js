@@ -35,11 +35,11 @@ export const employeeFetch = () => {
   };
 };
 
-export const employeeCreate = ({ name, email, phone, shift}) => {
+export const employeeSave = ({ name, email, phone, shift, uid}) => {
   const { currentUser } = firebase.auth();
   return (dispatch) => {
-    firebase.database().ref(`/users/${currentUser.uid}/employees`)
-      .push({ name, phone, email, shift })
+    firebase.database().ref(`/users/${currentUser.uid}/employees/${uid}`)
+      .set({ name, phone, email, shift })
       .then(() => {
         dispatch({ type: EMPLOYEE_CREATE });
         Actions.employeeList();

@@ -3,15 +3,14 @@ import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { Card, CardSection, Button } from './common';
 import { connect } from 'react-redux';
-import { employeeUpdate } from '../actions';
+import { employeeUpdate, employeeSave } from '../actions';
 import EmployeeForm from './EmployeeForm.js';
 import _ from 'lodash';
 
 class EmployeeEdit extends Component {
   onButtonPress (e) {
     const { name, phone, email, shift } = this.props;
-    console.log(name, phone, email, shift);
-    // this.props.employeeUpdate({ name, phone, email, shift });
+    this.props.employeeSave({ name, phone, email, shift, uid: this.props.employee.uid });
   }
   componentWillMount() {
     _.each(this.props.employee, (value, prop) => {
@@ -45,4 +44,4 @@ const mapStateToProps = state => {
   return { name, phone, email, shift };
 };
 
-export default connect(mapStateToProps, { employeeUpdate })(EmployeeEdit) ;
+export default connect(mapStateToProps, { employeeUpdate, employeeSave })(EmployeeEdit) ;
